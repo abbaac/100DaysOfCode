@@ -34,12 +34,11 @@ while not game_over:
 
             if not "_" in blanks:
                 game_over = True
-                print("\n Congratulations, You Win !")
+                print("\nCongratulations, You Win !")
             elif lives == 0:
                 game_over = True
                 print("\nYou've been hanged!")
                 print("================")
-                print(stages[0])
                 print(f"\nThe word was {word}!")
     else:
         print(f"You've already chosen {guess}. Choose a different option.")
