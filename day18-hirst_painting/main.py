@@ -17,7 +17,7 @@ for colors in extract:
 #     rgb_colors.append(tuple(extract[i].rgb))
     
 tim = Turtle()
-tim.speed("normal")
+tim.speed(1)
 colormode(255)
 
 start = -200

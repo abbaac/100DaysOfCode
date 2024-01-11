@@ -28,6 +28,6 @@ for _ in range(10):
     random_move()
 
 
-screen = Screen()
+screen = t.Screen()
 screen.exitonclick()
 
