@@ -1,0 +1,8 @@
+There's a glitch that occurs between ball and paddle distance and the y coordinate value, which makes the ball sort of resonate on the paddle. Try and fix that.
+
+When the paddle hits the ball, it can only move in one y direction so the player cannot be strategic with their plays by manipulating the y direction. Try and fix it in a way that
+if it hits the top part of the paddle it will bounce upwards and if it hits the bottom it will bounce downwards.
+
+Add a pause button using the press down key to pause the loop, You can use another while loop and a boolean spacebar.
+
+Figure out the time delay for the paddles. You can check the Udemy Q&A section.
