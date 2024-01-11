@@ -10,12 +10,13 @@ screen.bgcolor("black")
 screen.title("My Snake Game")
 screen.tracer(0) # We are setting this to 0 to remove the animation property the sqaure objects make when moving to stop the overall snake from looking divided. 
 
+
 # Creating objects
 snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
+startboard = Scoreboard()
 
-game_is_on = True
 
 screen.listen()
 
@@ -24,28 +25,37 @@ screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 screen.onkey(snake.up, "Up")
 screen.onkey(snake.down, "Down")
+    
 
-while game_is_on:
-    screen.update()
-    time.sleep(0.1)
-    snake.move()
 
-    # Actions after eating food
-    if snake.head.distance(food) < 15:
-        scoreboard.increase_score()
-        food.refresh()
-        snake.extend()
+def start_game():
+    startboard.clear()
+    scoreboard.display()
+    game_is_on = True
+    
+    while game_is_on:
+        screen.update()
+        time.sleep(0.1)
+        snake.move()
 
-    # Detect collisions with wall
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        game_is_on = False
-        scoreboard.game_over()
+        # Actions after eating food
+        if snake.head.distance(food) < 15:
+            scoreboard.increase_score()
+            food.refresh()
+            snake.extend()
 
-    # Detect collision with tail
+        # Detect collisions with wall
+        if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+            game_is_on = False
+            scoreboard.game_over()
+
+        # Detect collision with tail
         for segment in snake.segments[1:]:
             if snake.head.distance(segment) < 10:
                 game_is_on = False
                 scoreboard.game_over()
 
+startboard.start_game()
+screen.onkey(start_game, "space")
 
 screen.exitonclick()
