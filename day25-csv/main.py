@@ -32,11 +32,10 @@ while len(guessed_states) < 50:
                 writer.goto(x_cor, y_cor)
                 writer.write(f"{answer_state}", False, "center", ("Courier", 13, "bold"))
 
-
-unguessed_states = []
 states = states_data.state.to_list()
-for state in states:
-    if state not in unguessed_states:
-        unguessed_states.append(state)
+unguessed_states = [state for state in states if state not in unguessed_states]
+# for state in states:
+#     if state not in unguessed_states:
+#         unguessed_states.append(state)
 
 pd.DataFrame(unguessed_states).to_csv("states_to_learn.csv")
