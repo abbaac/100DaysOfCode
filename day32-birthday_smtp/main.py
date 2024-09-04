@@ -13,10 +13,14 @@ import datetime as dt
 import os
 import random
 import smtplib
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 now = dt.datetime.now()
 MY_USER = "warw1zrd@gmail.com"
-MY_PASSWORD = "rdznsmwavrrwtzfu"
+MY_PASSWORD = os.getenv('WARW1ZRD_API_KEY')
 # print(now.year, now.month, now.day)
 
 

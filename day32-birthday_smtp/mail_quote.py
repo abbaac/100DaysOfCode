@@ -1,6 +1,11 @@
 import smtplib
 import datetime as dt
 import random
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 
 # now = dt.datetime.now()
 # year = now.year
@@ -20,7 +25,8 @@ import random
 
 
 MY_EMAIL = "warw1zrd@gmail.com"
-MY_PASSWORD = "rdznsmwavrrwtzfu"
+MY_PASSWORD = os.getenv('WARW1ZRD_API_KEY')
+
 
 
 now = dt.datetime.now()
